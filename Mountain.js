@@ -1,3 +1,8 @@
+
+/*
+
+Try to find the index of the mountain who have the height more big
+*/
 // game loop
 
 while (true) {
