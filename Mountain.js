@@ -41,3 +41,14 @@ while (true) {
         // The index of the mountain to fire on.
 
 }
+//another way more simple
+
+while (true) {
+    let Height = []
+    for (let i = 0; i < 8; i++){
+        Height[i] = parseInt(readline()); // represents the height of one mountain.    
+    }
+
+    Height.forEach(( item, i, array ) = { if( max < item)  max = item });
+    console.log(Height.indexOf(max)); // The index of the mountain to fire on.
+}
