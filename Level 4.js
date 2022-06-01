@@ -50,3 +50,14 @@ if( !(!TabNeg.length) && !(!TabPos.length)){
 /*
 another way
 */
+
+var tab = [-2,-5,201,1]
+var min = 10000
+for(let i = 0; i < tab.length ; i++ ){
+      if(min  > Math.abs(parseInt(tab[i]))) min = Math.abs(parseInt(tab[i]))
+}
+if(!tab.length){
+    console.log(0)
+}else if(tab.indexOf(min) === -1){
+    console.log(-1*min)
+}else console.log(min)
