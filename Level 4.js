@@ -46,3 +46,7 @@ if( !(!TabNeg.length) && !(!TabPos.length)){
     console.log(TabPos[0])
   }
 }
+
+/*
+another way
+*/
