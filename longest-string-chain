@@ -83,8 +83,8 @@ function compareValue(value , arr, p, chain, position, longChain ){
     }
     for(let i = 0; i < arr.length; i++ ){
         if(indexOfString(value , arr[i])){
-            position.indexOf(value) == -1 ? position.push(value) : position.indexOf(value)
-            position.indexOf(arr[i]) == -1 ? position.push(arr[i]) : position.indexOf(value)
+            position.indexOf(value) == -1 ? position.push(value) : position = position
+            position.indexOf(arr[i]) == -1 ? position.push(arr[i]) : position = position
             if(arr != chain[chain.length -1]){
               compareValue(arr[i] , chain[p+1], p+1, chain, position, longChain)
             }else{
