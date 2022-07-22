@@ -107,25 +107,33 @@ function Clone(arr){
 }
 
 function compareValue(value , arr, p, chain, position, longChain ){
+  let compteur = 0
     for(let i = 0; i < arr.length; i++ ){
         if(indexOfString(value , arr[i])){
             position.indexOf(value) == -1 ? position.push(value) : position = position
             position.indexOf(arr[i]) == -1 ? position.push(arr[i]) : position = position
             if(arr != chain[chain.length -1]){
               compareValue(arr[i] , chain[p+1], p+1, chain, position, longChain)
-            }else{/*
-              let clone = []
-              Clone(position)an array in an array mean reference to reference
-              longChain.push(clone)*/
+            }else{
               longChain.push(Clone(position))// to avoid reference by passing by value
               let k = position.length - 1
               for(let i = 0; i < k ; i++ ){
                 position.pop()
               }
             }
+        }else {
+          compteur++
         }
     }
+    if(compteur == arr.length){
+    longChain.push(Clone(position))// to avoid reference by passing by value
+    let k = position.length - 1
+    for(let i = 0; i < k ; i++ ){
+        position.pop()
+    }
+  }
 }
+
 
 function compareArray(first, second, p , chain, position, longChain){
     for(let i = 0; i < first.length; i++ ){
