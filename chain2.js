@@ -141,7 +141,23 @@ function compareArray(first, second, p , chain, position, longChain){
         position = []
     }
 }
-/*
+
+function havePredecessor(firstArr, secondArr, longChain, p, chain){
+  let compteur = 0
+  for(let i = 0; i < secondArr.length ; i++){
+    for(let j = 0; j < firstArr.length ; j++){
+      if(!(indexOfString( firstArr[j] , secondArr[i]))){
+        compteur++
+      }
+    }
+    if(compteur === firstArr.length){
+      let position = []
+      compareValue(secondArr[i] , chain[p+1], p+1, chain, position, longChain )
+    }
+    compteur = 0
+  }
+}
+
 let Length = length(words[0])
 let del = ordinary(deleteDoublon(Length))
 let chain = [], longChain = [], position = []
@@ -149,6 +165,10 @@ for(let i = 0; i < del.length ; i++){
   chain[i] = listOfIndexOfString(words[0], del[i])
 }
 compareArray(chain[0], chain[1], 1, chain, position, longChain)
-*/
 
-console.log(indexOfString("zczpzvh","zczpzvhx"))
+
+let dontHavePredecessor = []
+for(let i = 0; i < chain.length -1; i++){
+  havePredecessor(chain[i], chain[i+1], longChain, i+1, chain)
+}
+console.log(longChain)
