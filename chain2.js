@@ -80,20 +80,20 @@ function indexOfString(arr , inArr){
   return isInArray
 }
 */
-function indexOfString(arr , inArr){
-  let isInArray = false
-  let compteur = 0
-  if(arr.length == inArr.length - 1 && 1 < arr.length ){
-    for(let i = 0; i < arr.length -1; i++){
-      if( inArr.indexOf(arr[i]) != -1 && (searchIndex(arr[i], inArr) < searchIndex(arr[i+1], inArr))){
-        ++compteur
+function isInArray(arrPrev, arr){
+  let j = 0, compteur = 0
+  for(let i = 0; i < arr.length; i++){
+    if(arrPrev[j] === arr[i]){
+      if(arrPrev[j+1] != undefined){
+        j++
       }
+      compteur ++
     }
-    if(compteur == arr.length - 1) isInArray = true
-  } else if(arr.length == 1 && inArr.indexOf(arr[0]) != -1){
-    isInArray = true
   }
-  return isInArray
+  if(compteur == arrPrev.length && arrPrev.length + 1 == arr.length){
+    return true
+  }
+  return false
 }
 
 
