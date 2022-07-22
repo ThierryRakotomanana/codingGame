@@ -135,7 +135,8 @@ function compareValue(value , arr, p, chain, position, longChain ){
 }
 
 
-function compareArray(first, second, p , chain, position, longChain){
+function compareArray(first, second, p , chain, longChain){
+  let position = []
     for(let i = 0; i < first.length; i++ ){
         compareValue(first[i] , second, p, chain, position, longChain)
         position = []
@@ -164,7 +165,7 @@ let chain = [], longChain = [], position = []
 for(let i = 0; i < del.length ; i++){
   chain[i] = listOfIndexOfString(words[0], del[i])
 }
-compareArray(chain[0], chain[1], 1, chain, position, longChain)
+compareArray(chain[0], chain[1], 1, chain, longChain)
 
 
 let dontHavePredecessor = []
