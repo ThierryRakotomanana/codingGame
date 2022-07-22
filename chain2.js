@@ -84,10 +84,11 @@ function indexOfString(arrPrev, arr){
   let j = 0, compteur = 0
   for(let i = 0; i < arr.length; i++){
     if(arrPrev[j] === arr[i]){
-      if(arrPrev[j+1] != undefined){
-        j++
-      }
       compteur ++
+      if(arrPrev[j+1] === undefined){
+        break
+      }
+      j++
     }
   }
   if(compteur == arrPrev.length && arrPrev.length + 1 == arr.length){
