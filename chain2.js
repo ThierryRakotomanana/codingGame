@@ -80,7 +80,7 @@ function indexOfString(arr , inArr){
   return isInArray
 }
 */
-function isInArray(arrPrev, arr){
+function indexOfString(arrPrev, arr){
   let j = 0, compteur = 0
   for(let i = 0; i < arr.length; i++){
     if(arrPrev[j] === arr[i]){
