@@ -80,21 +80,20 @@ function indexOfString(arr , inArr){
   return isInArray
 }
 */
-function indexOfString(arrPrev, arr){
-  let j = 0, compteur = 0
-  for(let i = 0; i < arr.length; i++){
-    if(arrPrev[j] === arr[i]){
-      compteur ++
-      if(arrPrev[j+1] === undefined){
-        break
+function indexOfString(arr , inArr){
+  let isInArray = false
+  let compteur = 0
+  if(arr.length == inArr.length - 1 && 1 < arr.length ){
+    for(let i = 0; i < arr.length -1; i++){
+      if( inArr.indexOf(arr[i]) != -1 && (searchIndex(arr[i], inArr) < searchIndex(arr[i+1], inArr))){
+        ++compteur
       }
-      j++
     }
+    if(compteur == arr.length - 1) isInArray = true
+  } else if(arr.length == 1 && inArr.indexOf(arr[0]) != -1){
+    isInArray = true
   }
-  if(compteur == arrPrev.length && arrPrev.length + 1 == arr.length){
-    return true
-  }
-  return false
+  return isInArray
 }
 
 
@@ -107,69 +106,41 @@ function Clone(arr){
 }
 
 function compareValue(value , arr, p, chain, position, longChain ){
-  let compteur = 0
     for(let i = 0; i < arr.length; i++ ){
         if(indexOfString(value , arr[i])){
             position.indexOf(value) == -1 ? position.push(value) : position = position
             position.indexOf(arr[i]) == -1 ? position.push(arr[i]) : position = position
             if(arr != chain[chain.length -1]){
               compareValue(arr[i] , chain[p+1], p+1, chain, position, longChain)
-            }else{
+            }else{/*
+              let clone = []
+              Clone(position)an array in an array mean reference to reference
+              longChain.push(clone)*/
               longChain.push(Clone(position))// to avoid reference by passing by value
               let k = position.length - 1
               for(let i = 0; i < k ; i++ ){
                 position.pop()
               }
             }
-        }else {
-          compteur++
         }
     }
-    if(compteur == arr.length){
-    longChain.push(Clone(position))// to avoid reference by passing by value
-    let k = position.length - 1
-    for(let i = 0; i < k ; i++ ){
-        position.pop()
-    }
-  }
 }
 
-
-function compareArray(first, second, p , chain, longChain){
-  let position = []
+function compareArray(first, second, p , chain, position, longChain){
     for(let i = 0; i < first.length; i++ ){
         compareValue(first[i] , second, p, chain, position, longChain)
         position = []
     }
 }
-
-function havePredecessor(firstArr, secondArr, longChain, p, chain){
-  let compteur = 0
-  for(let i = 0; i < secondArr.length ; i++){
-    for(let j = 0; j < firstArr.length ; j++){
-      if(!(indexOfString( firstArr[j] , secondArr[i]))){
-        compteur++
-      }
-    }
-    if(compteur === firstArr.length){
-      let position = []
-      compareValue(secondArr[i] , chain[p+1], p+1, chain, position, longChain )
-    }
-    compteur = 0
-  }
-}
-
+/*
 let Length = length(words[0])
 let del = ordinary(deleteDoublon(Length))
 let chain = [], longChain = [], position = []
 for(let i = 0; i < del.length ; i++){
   chain[i] = listOfIndexOfString(words[0], del[i])
 }
-compareArray(chain[0], chain[1], 1, chain, longChain)
+compareArray(chain[0], chain[1], 1, chain, position, longChain)
+*/
 
-
-let dontHavePredecessor = []
-for(let i = 0; i < chain.length -1; i++){
-  havePredecessor(chain[i], chain[i+1], longChain, i+1, chain)
-}
-console.log(longChain)
+console.log(indexOfString("zczpzvh","zczpzvhx"))
+console.log('Hello Enjo')
