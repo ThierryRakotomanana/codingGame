@@ -148,13 +148,15 @@ function havePredecessor(firstArr, secondArr, longChain, p, chain){
     }
     
 }
-
+/*
 let Length = length(words[0])
 let del = ordinary(deleteDoublon(Length))
+
 let chain = [], longChain = []
 for(let i = 0; i < del.length ; i++){
   chain[i] = listOfIndexOfString(words[0], del[i])
 }
+*/
 console.log(chain)
 let dontHavePredecessor = []
 for(let i = 0; i < chain.length -1; i++){
