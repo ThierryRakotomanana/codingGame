@@ -155,6 +155,8 @@ for(let i = 0; i < Words[0].length ; i++){
   chain[lenght] != undefined ? (chain[lenght].indexOf(element) == -1 ? chain[lenght].push(element) : chain[lenght] = chain[lenght] ) : chain[lenght] = new Array(element)
 }
 console.log(chain)
+/* Here chain is not an array
+*/
 
 console.log(chain)
 let dontHavePredecessor = []
