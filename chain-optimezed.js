@@ -1,5 +1,6 @@
 
 
+
 let words = []
 words[0] = ["a","b","ba","bca","bda","bdca", 'c' , 'e','efg','efgh','efghi','efghij','efghijk','efghijkl'] 
 words[1] = ["a","b","ba","bca","bda","bdca", 'c' , 'e','cd','cde','fcde','ce','fcdek','bdkca']
@@ -148,15 +149,13 @@ function havePredecessor(firstArr, secondArr, longChain, p, chain){
     }
     
 }
-/*
-let Length = length(words[0])
-let del = ordinary(deleteDoublon(Length))
-
-let chain = [], longChain = []
-for(let i = 0; i < del.length ; i++){
-  chain[i] = listOfIndexOfString(words[0], del[i])
+chain = new Map()
+for(let i = 0; i < Words[0].length ; i++){
+  const element = Words[0][i], lenght = element.length
+  chain[lenght] != undefined ? (chain[lenght].indexOf(element) == -1 ? chain[lenght].push(element) : chain[lenght] = chain[lenght] ) : chain[lenght] = new Array(element)
 }
-*/
+console.log(chain)
+
 console.log(chain)
 let dontHavePredecessor = []
 for(let i = 0; i < chain.length -1; i++){
