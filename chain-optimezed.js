@@ -162,9 +162,6 @@ for(let i = 0; i < words[0].length ; i++){
   const element = words[0][i], lenght = element.length
   chain.has(lenght) ? (chain.get(lenght).indexOf(element) == -1 ? chain.get(lenght).push(element) : chain.get(lenght) = chain.get(lenght)) : chain.set(lenght,new Array(element))
 }
-for (const [key, value] of chain.entries()) {
-  console.log(`${value}`);
-}
 
 for(let value of chain.keys()){
   console.log(chain[value])
