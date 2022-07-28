@@ -150,9 +150,11 @@ function havePredecessor(firstArr, secondArr, longChain, p, chain){
     }
     
 }
-chain = new Map()
+let min = Number.POSITIVE_INFINITY, max = Number.NEGATIVE_INFINITY
 for(let i = 0; i < words[0].length ; i++){
   const element = words[0][i], lenght = element.length
+  lenght < min ? min = lenght : min = min
+  max < lenght ? max = lenght : max = max
   chain[lenght] != undefined ? (chain[lenght].indexOf(element) == -1 ? chain[lenght].push(element) : chain[lenght] = chain[lenght] ) : chain[lenght] = new Array(element)
 }
 let longChain = []
