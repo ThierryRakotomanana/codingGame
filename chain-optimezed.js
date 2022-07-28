@@ -129,13 +129,14 @@ function Clone(arr){
   }
 
 function havePredecessor(firstArr, secondArr, longChain, p, chain){
+  console.log(firstArr)
     let compteur = 0, position = []
-    for(let i = 0; i < secondArr.length ; i++){
+    for(let i = 0; i < secondArr.size ; i++){
         if(firstArr == undefined){
             compareValue(secondArr[i] , chain[p+1], p+1, chain,position, longChain, 0)
             position = []
         }else {
-            for(let j = 0; j < firstArr.length ; j++){
+            for(let j = 0; j < firstArr.size ; j++){
                 if(!(indexOfString( firstArr[j] , secondArr[i]))){
                 compteur++
                 }
@@ -150,16 +151,23 @@ function havePredecessor(firstArr, secondArr, longChain, p, chain){
     
 }
 chain = new Map()
-for(let i = 0; i < Words[0].length ; i++){
-  const element = Words[0][i], lenght = element.length
+for(let i = 0; i < words[0].length ; i++){
+  const element = words[0][i], lenght = element.length
   chain[lenght] != undefined ? (chain[lenght].indexOf(element) == -1 ? chain[lenght].push(element) : chain[lenght] = chain[lenght] ) : chain[lenght] = new Array(element)
 }
-console.log(chain)
-/* Here chain is not an array
-*/
+let longChain = []
 
-console.log(chain)
-let dontHavePredecessor = []
-for(let i = 0; i < chain.length -1; i++){
-  havePredecessor(chain[i - 1 ], chain[i], longChain, i, chain)
+chain = new Map()
+for(let i = 0; i < words[0].length ; i++){
+  const element = words[0][i], lenght = element.length
+  chain.has(lenght) ? (chain.get(lenght).indexOf(element) == -1 ? chain.get(lenght).push(element) : chain.get(lenght) = chain.get(lenght)) : chain.set(lenght,new Array(element))
 }
+for (const [key, value] of chain.entries()) {
+  console.log(`${value}`);
+}
+
+for(let value of chain.keys()){
+  console.log(chain[value])
+  havePredecessor(chain[parseInt(value) - 1 ], chain[value], longChain, parseInt(value), chain)
+}
+console.log(longChain)
