@@ -92,6 +92,7 @@ for(let i = 0; i < words[0].length ; i++){
   chain[lenght] != undefined ? (chain[lenght].indexOf(element) == -1 ? chain[lenght].push(element) : chain[lenght] = chain[lenght] ) : chain[lenght] = new Array(element)
 }
 let longChain = []
+// The next challenge is to reduce the function to make it more speed
 for(let i= min ; i < max ; i++ ){
   havePredecessor(chain[parseInt(i) - 1 ], chain[i], longChain, parseInt(i), chain, max)
 }
