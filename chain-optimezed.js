@@ -60,29 +60,6 @@ function Clone(arr){
     }
   }
 
-function havePredecessor(firstArr, secondArr, longChain, p, chain, max){
-  
-    let compteur = 0, position = []
-    for(let i = 0; i < secondArr.length ; i++){
-        if(firstArr == undefined){
-            compareValue(secondArr[i] , chain[p+1], p+1, chain,position, longChain, p, max)
-            position = []
-        }else {
-            for(let j = 0; j < firstArr.length ; j++){
-                if(!(indexOfString( firstArr[j] , secondArr[i]))){
-                compteur++
-                }
-            }
-            if(compteur === firstArr.length){
-                compareValue(secondArr[i] , chain[p+1], p+1, chain,position, longChain, p, max)
-                position = []
-            }
-            compteur = 0
-        }
-    }
-    
-}
-
 chain = new Map()
 let min = Number.POSITIVE_INFINITY, max = Number.NEGATIVE_INFINITY
 for(let i = 0; i < words[0].length ; i++){
@@ -91,10 +68,27 @@ for(let i = 0; i < words[0].length ; i++){
   max < lenght ? max = lenght : max = max
   chain[lenght] != undefined ? (chain[lenght].indexOf(element) == -1 ? chain[lenght].push(element) : chain[lenght] = chain[lenght] ) : chain[lenght] = new Array(element)
 }
-let longChain = []
-// The next challenge is to reduce the function to make it more speed
+let longChain = [],  compteur = 0, position = []
+
 for(let i= min ; i < max ; i++ ){
-  havePredecessor(chain[parseInt(i) - 1 ], chain[i], longChain, parseInt(i), chain, max)
+    for(let n = 0; n < chain[i].length ; n++){
+        if(chain[parseInt(i) - 1 ] == undefined){
+            compareValue(chain[i][n] , chain[i+1], i+1, chain, position, longChain, i, max)
+            position = []
+        }else {
+            for(let j = 0; j < chain[parseInt(i) - 1 ].length ; j++){
+                if(!(indexOfString( chain[parseInt(i) - 1 ][j] , chain[i][n]))){
+                compteur++
+                }
+            }
+            if(compteur === chain[parseInt(i) - 1 ].length){
+                compareValue(chain[i][n] , chain[i+1], i+1, chain,position, longChain, i, max)
+                position = []
+            }
+            compteur = 0
+        }
+    }
+
 }
 
 console.log(longChain)
