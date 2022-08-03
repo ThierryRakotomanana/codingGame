@@ -75,23 +75,29 @@ for(let i = 0; i < words[0].length ; i++){
 }
 let longChain = [],  compteur = 0, position = 0
 
+
+let longChain = [],  compteur = 0, position = []
+
 for(let i= min ; i < max ; i++ ){
     for(let n = 0; n < chain[i].length ; n++){
         if(chain[parseInt(i) - 1 ] == undefined){
           let value = chain[i][n] ,p = i+1, successor = chain[p], a = 0
           do{
             if(indexOfString(value, successor[a])){
-              console.log(value, successor[a])
+              position.indexOf(value) == -1 ? position.push(value) : position = position
+              position.indexOf(successor[a]) == -1 ? position.push(successor[a]) : position = position
               value = successor[a]
               p++
               successor = chain[p]
+              console.log(value, successor)
               a = 0
-              position = p
+            } else{
+             a++ 
             }
-            a++
-          } while (successor[a] != undefined)
+          } while (successor!= undefined && p != max +1 && successor[a]!= undefined)
           longChain.push(position)
-          position = 0
+          a = 0
+          position = []
         }else {
             for(let j = 0; j < chain[parseInt(i) - 1 ].length ; j++){
                 if(!(indexOfString( chain[parseInt(i) - 1 ][j] , chain[i][n]))){
@@ -102,23 +108,26 @@ for(let i= min ; i < max ; i++ ){
               let value = chain[i][n] ,p = i+1, successor = chain[p], a = 0
               do{
                 if(indexOfString(value, successor[a])){
-                  console.log(value, successor[a])
+                  position.indexOf(value) == -1 ? position.push(value) : position = position
+                  position.indexOf(successor[a]) == -1 ? position.push(successor[a]) : position = position
                   value = successor[a]
                   p++
                   successor = chain[p]
+                  console.log(value, successor)
                   a = 0
-                  position = p
+                } else{
+                  a++
                 }
-                a++
-              } while (successor[a] != undefined)
+              } while (successor != undefined && p != max +1 && successor[a] != undefined)
               longChain.push(position)
-              position = 0
+              position = []
             }
             compteur = 0
         }
     }
 
 }
+
 
 console.log(longChain)
 
