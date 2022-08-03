@@ -89,13 +89,12 @@ for(let i= min ; i < max ; i++ ){
               value = successor[a]
               p++
               successor = chain[p]
-              console.log(value, successor)
               a = 0
             } else{
              a++ 
             }
           } while (successor!= undefined && p != max +1 && successor[a]!= undefined)
-          longChain.push(position)
+          longChain.push([position.length, p - min])
           a = 0
           position = []
         }else {
@@ -113,13 +112,12 @@ for(let i= min ; i < max ; i++ ){
                   value = successor[a]
                   p++
                   successor = chain[p]
-                  console.log(value, successor)
                   a = 0
                 } else{
                   a++
                 }
               } while (successor != undefined && p != max +1 && successor[a] != undefined)
-              longChain.push(position)
+              longChain.push([position.length, p - i])
               position = []
             }
             compteur = 0
@@ -128,7 +126,7 @@ for(let i= min ; i < max ; i++ ){
 
 }
 
-
+console.log(longChain)
 console.log(longChain)
 
 /* Try to use iterate
