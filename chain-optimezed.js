@@ -28,15 +28,6 @@ function indexOfString(arrPrev, arr){
   return false
 }
 
-
-function Clone(arr){
-    let clone = []
-    for(let i = 0; i < arr.length ; i++ ){
-      clone[i] = arr[i]
-    }
-    return clone
-  }
-  
 function compareValue(value , arr, p, chain,position, longChain, initialPosition, max){
     let compteur = 0
       for(let i = 0; i < arr.length; i++ ){
