@@ -9,21 +9,26 @@ words[0] = ["ksqvsyq","ks","kss","czvh","zczpzvdhx","zczpzvh","zczpzvhx","zcpzvh
 
 
 function indexOfString(arrPrev, arr){
-  let j = 0, compteur = 0
-  for(let i = 0; i < arr.length; i++){
-    if(arrPrev[j] === arr[i]){
-      compteur ++
-      if(arrPrev[j+1] === undefined){
-        break
+  if(arr != undefined && arrPrev != undefined){
+    let j = 0, compteur = 0
+    for(let i = 0; i < arr.length; i++){
+      if(arrPrev[j] === arr[i]){
+        compteur ++
+        if(arrPrev[j+1] === undefined){
+          break
+        }
+        j++
       }
-      j++
+    }
+    if(compteur == arrPrev.length && arrPrev.length + 1 == arr.length){
+      return true
     }
   }
-  if(compteur == arrPrev.length && arrPrev.length + 1 == arr.length){
-    return true
-  }
+
   return false
 }
+
+
 function Clone(arr){
     let clone = []
     for(let i = 0; i < arr.length ; i++ ){
@@ -32,13 +37,13 @@ function Clone(arr){
     return clone
   }
   
-  function compareValue(value , arr, p, chain,position, longChain, initialPosition, max){
+function compareValue(value , arr, p, chain,position, longChain, initialPosition, max){
     let compteur = 0
       for(let i = 0; i < arr.length; i++ ){
           if(indexOfString(value , arr[i])){
             position.indexOf(value) == -1 ? position.push(value) : position = position
             position.indexOf(arr[i]) == -1 ? position.push(arr[i]) : position = position
-              if(arr != chain[max]){
+            if(arr != chain[max]){
                 compareValue(arr[i] , chain[p+1], p+1, chain, position, longChain, initialPosition, max)
               }else if(position.length != 0){
                 longChain.push(Clone(position),p + 1 - initialPosition)// to avoid reference by passing by value
@@ -68,13 +73,25 @@ for(let i = 0; i < words[0].length ; i++){
   max < lenght ? max = lenght : max = max
   chain[lenght] != undefined ? (chain[lenght].indexOf(element) == -1 ? chain[lenght].push(element) : chain[lenght] = chain[lenght] ) : chain[lenght] = new Array(element)
 }
-let longChain = [],  compteur = 0, position = []
+let longChain = [],  compteur = 0, position = 0
 
 for(let i= min ; i < max ; i++ ){
     for(let n = 0; n < chain[i].length ; n++){
         if(chain[parseInt(i) - 1 ] == undefined){
-            compareValue(chain[i][n] , chain[i+1], i+1, chain, position, longChain, i, max)
-            position = []
+          let value = chain[i][n] ,p = i+1, successor = chain[p], a = 0
+          do{
+            if(indexOfString(value, successor[a])){
+              console.log(value, successor[a])
+              value = successor[a]
+              p++
+              successor = chain[p]
+              a = 0
+              position = p
+            }
+            a++
+          } while (successor[a] != undefined)
+          longChain.push(position)
+          position = 0
         }else {
             for(let j = 0; j < chain[parseInt(i) - 1 ].length ; j++){
                 if(!(indexOfString( chain[parseInt(i) - 1 ][j] , chain[i][n]))){
@@ -82,8 +99,20 @@ for(let i= min ; i < max ; i++ ){
                 }
             }
             if(compteur === chain[parseInt(i) - 1 ].length){
-                compareValue(chain[i][n] , chain[i+1], i+1, chain,position, longChain, i, max)
-                position = []
+              let value = chain[i][n] ,p = i+1, successor = chain[p], a = 0
+              do{
+                if(indexOfString(value, successor[a])){
+                  console.log(value, successor[a])
+                  value = successor[a]
+                  p++
+                  successor = chain[p]
+                  a = 0
+                  position = p
+                }
+                a++
+              } while (successor[a] != undefined)
+              longChain.push(position)
+              position = 0
             }
             compteur = 0
         }
@@ -92,3 +121,19 @@ for(let i= min ; i < max ; i++ ){
 }
 
 console.log(longChain)
+
+/* Try to use iterate
+
+
+while(misy successeur){
+  valeur-precedente = value /string
+  tab = tableau a parcourir
+  pour chauque valeur de tab[i]
+    if(tab[i] et valeur misy ifandraisany){
+      value = tab[i]
+      tab = nextTab  
+    }else{
+  
+    }
+}
+*/
