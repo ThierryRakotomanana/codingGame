@@ -28,34 +28,6 @@ function indexOfString(arrPrev, arr){
   return false
 }
 
-function compareValue(value , arr, p, chain,position, longChain, initialPosition, max){
-    let compteur = 0
-      for(let i = 0; i < arr.length; i++ ){
-          if(indexOfString(value , arr[i])){
-            position.indexOf(value) == -1 ? position.push(value) : position = position
-            position.indexOf(arr[i]) == -1 ? position.push(arr[i]) : position = position
-            if(arr != chain[max]){
-                compareValue(arr[i] , chain[p+1], p+1, chain, position, longChain, initialPosition, max)
-              }else if(position.length != 0){
-                longChain.push(Clone(position),p + 1 - initialPosition)// to avoid reference by passing by value
-                let k = position.length
-                for(let i = 0; i < k ; i++ ){
-                  position.pop()
-                }
-              }
-          }else {
-            compteur++
-          }
-      }
-      if(compteur == arr.length && position.length != 0){
-        longChain.push(Clone(position), p - initialPosition)// to avoid reference by passing by value
-        let k = position.length - 1
-        for(let i = 0; i < k ; i++ ){
-          position.pop()
-        }
-    }
-  }
-
 chain = new Map()
 let min = Number.POSITIVE_INFINITY, max = Number.NEGATIVE_INFINITY
 for(let i = 0; i < words[0].length ; i++){
@@ -64,9 +36,6 @@ for(let i = 0; i < words[0].length ; i++){
   max < lenght ? max = lenght : max = max
   chain[lenght] != undefined ? (chain[lenght].indexOf(element) == -1 ? chain[lenght].push(element) : chain[lenght] = chain[lenght] ) : chain[lenght] = new Array(element)
 }
-let longChain = [],  compteur = 0, position = 0
-
-
 let longChain = [],  compteur = 0, position = []
 
 for(let i= min ; i < max ; i++ ){
@@ -118,7 +87,6 @@ for(let i= min ; i < max ; i++ ){
 }
 
 console.log(longChain)
-console.log(longChain)
 
 /* Try to use iterate
 
@@ -135,3 +103,23 @@ while(misy successeur){
     }
 }
 */
+
+do{
+  for (let i = 0; i >= predecessor.length ; i++) {
+    for (let j = 0; j >= successor.length ; j++) {
+      if(indexOfString(predecessor[i], successor[j])){
+        count++
+        newSuccessor.push(successor[j])
+        push(predecessor[i], successor[j])
+      }
+    }
+    if(count == successor.length){
+      condition = false
+    }else{
+      condition =true
+      predecessor = newSuccessor
+      successor = chain[p+1]
+
+    }
+  }
+}while(condition)
