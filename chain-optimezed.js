@@ -109,7 +109,7 @@ do{
     for (let j = 0; j >= successor.length ; j++) {
       if(indexOfString(predecessor[i], successor[j])){
         count++
-        newSuccessor.push(successor[j])
+        newpredecessor.push(successor[j])
         push(predecessor[i], successor[j])
       }
     }
@@ -123,3 +123,35 @@ do{
     }
   }
 }while(condition)
+
+
+
+do{
+  newpredecessor = []
+  for (let i = 0; i <  predecessor.length ; i++) {
+    count = 0
+    for (let j = 0; j <  successor.length ; j++) {
+      if(predecessor == chain[min]){
+        if(indexOfString(predecessor[i], successor[j])){
+          count++
+          newpredecessor.push([predecessor[i], successor[j]])
+        }
+       }else if(indexOfString(predecessor[i][predecessor[i].length -1], successor[j])){
+        count++
+        newpredecessor.push(predecessor[i].concat(successor[j]))
+     }
+    }
+    if(count == successor.length){
+        finalChain.push(predecessor[i])
+    }
+  }
+  if(newpredecessor.length !=0 && successor != undefined){
+    p++
+    predecessor = newpredecessor
+    successor = chain[p]
+    condition = true
+  }else{
+    condition = false
+  }
+  console.log(predecessor, successor)
+} while (condition)
