@@ -41,22 +41,37 @@ let longChain = [],  compteur = 0, position = []
 for(let i= min ; i < max ; i++ ){
     for(let n = 0; n < chain[i].length ; n++){
         if(chain[parseInt(i) - 1 ] == undefined){
-          let value = chain[i][n] ,p = i+1, successor = chain[p], a = 0
+          let condition = true, p = min+1, finalChain =[], predecessor = chain[min], successor = chain[p], count = 0
           do{
-            if(indexOfString(value, successor[a])){
-              position.indexOf(value) == -1 ? position.push(value) : position = position
-              position.indexOf(successor[a]) == -1 ? position.push(successor[a]) : position = position
-              value = successor[a]
-              p++
-              successor = chain[p]
-              a = 0
-            } else{
-             a++ 
+            newpredecessor = []
+            for (let i = 0; i <  predecessor.length ; i++) {
+              count = 0
+              for (let j = 0; j <  successor.length ; j++) {
+                if(typeof predecessor[i] === 'string'){
+                  if(indexOfString(predecessor[i], successor[j])){
+                    count++
+                    newpredecessor.push([predecessor[i], successor[j]])
+                  }
+                 }else if(indexOfString(predecessor[i][predecessor[i].length -1], successor[j])){
+                  count++
+                  newpredecessor.push(predecessor[i].concat(successor[j]))
+               }
+              }
+              console.log(count, predecessor[i][predecessor[i].length -1] , successor)
+              if(count == 0){
+                
+                  finalChain.push(predecessor[i])
+              }
             }
-          } while (successor!= undefined && p != max +1 && successor[a]!= undefined)
-          longChain.push([position.length, p - min])
-          a = 0
-          position = []
+            if(newpredecessor.length !=0 && successor != undefined){
+              p++
+              predecessor = newpredecessor
+              successor = chain[p]
+              condition = true
+            }else{
+              condition = false
+            }
+          }while(condition)
         }else {
             for(let j = 0; j < chain[parseInt(i) - 1 ].length ; j++){
                 if(!(indexOfString( chain[parseInt(i) - 1 ][j] , chain[i][n]))){
@@ -64,22 +79,39 @@ for(let i= min ; i < max ; i++ ){
                 }
             }
             if(compteur === chain[parseInt(i) - 1 ].length){
-              let value = chain[i][n] ,p = i+1, successor = chain[p], a = 0
-              do{
-                if(indexOfString(value, successor[a])){
-                  position.indexOf(value) == -1 ? position.push(value) : position = position
-                  position.indexOf(successor[a]) == -1 ? position.push(successor[a]) : position = position
-                  value = successor[a]
-                  p++
-                  successor = chain[p]
-                  a = 0
-                } else{
-                  a++
-                }
-              } while (successor != undefined && p != max +1 && successor[a] != undefined)
-              longChain.push([position.length, p - i])
-              position = []
-            }
+              
+
+            let condition = true, p = min+1, finalChain =[], predecessor = chain[min], successor = chain[p], count = 0
+                      do{
+                        newpredecessor = []
+                        for (let i = 0; i <  predecessor.length ; i++) {
+                          count = 0
+                          for (let j = 0; j <  successor.length ; j++) {
+                            if(typeof predecessor[i] === 'string'){
+                              if(indexOfString(predecessor[i], successor[j])){
+                                count++
+                                newpredecessor.push([predecessor[i], successor[j]])
+                              }
+                             }else if(indexOfString(predecessor[i][predecessor[i].length -1], successor[j])){
+                              count++
+                              newpredecessor.push(predecessor[i].concat(successor[j]))
+                           }
+                          }
+                          console.log(count, predecessor[i][predecessor[i].length -1] , successor)
+                          if(count == 0){
+                            
+                              finalChain.push(predecessor[i])
+                          }
+                        }
+                        if(newpredecessor.length !=0 && successor != undefined){
+                          p++
+                          predecessor = newpredecessor
+                          successor = chain[p]
+                          condition = true
+                        }else{
+                          condition = false
+                        }
+                      }while(condition) 
             compteur = 0
         }
     }
@@ -126,32 +158,91 @@ do{
 
 
 
-do{
-  newpredecessor = []
-  for (let i = 0; i <  predecessor.length ; i++) {
-    count = 0
-    for (let j = 0; j <  successor.length ; j++) {
-      if(predecessor == chain[min]){
-        if(indexOfString(predecessor[i], successor[j])){
-          count++
-          newpredecessor.push([predecessor[i], successor[j]])
+
+let longChain = [],  compteur = 0
+let longuestChain = []
+for(let i= min ; i < max ; i++ ){
+    for(let n = 0; n < chain[i].length ; n++){
+        if(chain[parseInt(i) - 1 ] == undefined){
+          let condition = true, p = min+1, finalChain =[], predecessor = chain[min], successor = chain[p], count = 0
+          do{
+            newpredecessor = []
+            for (let i = 0; i <  predecessor.length ; i++) {
+              count = 0
+              for (let j = 0; j <  successor.length ; j++) {
+                if(typeof predecessor[i] === 'string'){
+                  if(indexOfString(predecessor[i], successor[j])){
+                    count++
+                    newpredecessor.push([predecessor[i], successor[j]])
+                  }
+                 }else if(indexOfString(predecessor[i][predecessor[i].length -1], successor[j])){
+                  count++
+                  newpredecessor.push(predecessor[i].concat(successor[j]))
+               }
+              }
+              if(count == 0){
+                
+                  finalChain.push(predecessor[i])
+              }
+            }
+            if(newpredecessor.length !=0 && successor != undefined){
+              p++
+              predecessor = newpredecessor
+              successor = chain[p]
+              condition = true
+            }else{
+              condition = false
+            }
+          }while(condition)
+            longuestChain = longuestChain.concat(finalChain)
+        }else {
+          compteur = 0
+            for(let j = 0; j < chain[parseInt(i) - 1 ].length ; j++){
+                if(!(indexOfString( chain[parseInt(i) - 1 ][j] , chain[i][n]))){
+                compteur++
+                }
+            }
+            if(compteur === chain[parseInt(i) - 1 ].length){
+              
+              console.log('ATO', chain[i-1].length, compteur, chain[i][n])
+              
+              let condition = true, p = i+1, finalChain =[], predecessor = [chain[i][n]], successor = chain[p], count = 0
+                      do{
+                        newpredecessor = []
+                        for (let i = 0; i <  predecessor.length ; i++) {
+                          count = 0
+                          if(typeof successor == 'object'){
+                            for (let j = 0; j <  successor.length ; j++) {
+                            if(typeof predecessor[i] === 'string'){
+                              if(indexOfString(predecessor[i], successor[j])){
+                                count++
+                                newpredecessor.push([predecessor[i], successor[j]])
+                              }
+                             }else if(indexOfString(predecessor[i][predecessor[i].length -1], successor[j])){
+                              count++
+                              newpredecessor.push(predecessor[i].concat(successor[j]))
+                           }
+                          }
+                          }
+                          if(count == 0){
+                            
+                              finalChain.push(predecessor[i])
+                          }
+                        }
+                        if(newpredecessor.length !=0 && successor != undefined){
+                          p++
+                          predecessor = newpredecessor
+                          successor = chain[p]
+                          condition = true
+                        }else{
+                          condition = false
+                        }
+                      }while(condition) 
+            compteur = 0
+            longuestChain = longuestChain.concat(finalChain)
         }
-       }else if(indexOfString(predecessor[i][predecessor[i].length -1], successor[j])){
-        count++
-        newpredecessor.push(predecessor[i].concat(successor[j]))
-     }
     }
-    if(count == successor.length){
-        finalChain.push(predecessor[i])
-    }
-  }
-  if(newpredecessor.length !=0 && successor != undefined){
-    p++
-    predecessor = newpredecessor
-    successor = chain[p]
-    condition = true
-  }else{
-    condition = false
-  }
-  console.log(predecessor, successor)
-} while (condition)
+
+}
+}
+  console.log(longuestChain)
