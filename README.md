@@ -1,6 +1,6 @@
 # codingGame
 I'm currently learning JavaScript and I want to improve my skills at Data Structures.
-<li><a href="https://www.codingame.com/">Coding Game</a></li> is a plateform on Coding interview
+<li><a href="https://www.codingame.com/">Coding Game</a>is a plateform on Coding interview</li> 
 
 
 ## Contribution
