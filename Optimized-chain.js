@@ -83,7 +83,7 @@ function haveSuccessor(firstString, secondString) {
 }
 
 function searchLonguestChain(predecessor, successor, chain, p) {
-    let lengthOfSucc = successor.lenght, count = 0, newPredecessor = [], finalChain = []
+    let lengthOfSucc = successor.length, count = 0, newPredecessor = [], finalChain = []
     for (let index = 0; index < lengthOfSucc; index++) {
         if(haveSuccessor(predecessor, successor[index])){
             newPredecessor.push([predecessor, successor[index]])
@@ -99,10 +99,10 @@ function searchLonguestChain(predecessor, successor, chain, p) {
         successor = chain[p]
         do {
             count = 0
-            lengthOfPredc = predecessor.lenght, lengthOfSucc = successor.lenght, newPredecessor = []
+            lengthOfPredc = predecessor.length, lengthOfSucc = successor.length, newPredecessor = []
             for (let index = 0; index < lengthOfPredc; index++) {
                 for (let i = 0; i < lengthOfSucc; i++) {
-                    if(haveSuccessor(predecessor[index][predecessor[index].lenght -1], successor[i])){
+                    if(haveSuccessor(predecessor[index][predecessor[index].length -1], successor[i])){
                         newPredecessor.push(predecessor[index].concat(successor[i]))
                     }else{
                         count++
@@ -141,7 +141,7 @@ for (let i = 0; i < words[0].length; i++) {
 for (let i = min; i < max - 1; i++) {
   let predecessor = chain[i],
     successor = chain[i + 1];
-  lengthOfPredc = predecessor.lenght;
+  lengthOfPredc = predecessor.length;
   for (let j = 0; j < lengthOfPredc; j++) {
     let compteur = 0;
     if (chain[i - 1] === undefined) {
@@ -150,7 +150,7 @@ for (let i = min; i < max - 1; i++) {
             longuestChain = longuestChain.concat(searchLonguestChain(predecessor[j], successor, chain, min + 1));
         }
     } else {
-        lengthOfPredChain =  chain[i - 1].lenght;
+        lengthOfPredChain =  chain[i - 1].length;
       for (let k = 0; k < lengthOfPredChain; k++) {
         if (!haveSuccessor( chain[i - 1][k], predecessor[j])) compteur++;
       }
