@@ -61,26 +61,6 @@ words[0] = [
  * @returns {boolean} true if firstString is Predecessor of secondString
  */
 
-function haveSuccessor(firstString, secondString) {
-  if (secondString != undefined && firstString != undefined) {
-    let j = 0,
-      compteur = 0;
-    for (let i = 0; i < secondString.length; i++) {
-      if (firstString[j] === secondString[i]) {
-        compteur++;
-        if (firstString[j + 1] === undefined) {
-          break;
-        }
-        j++;
-      }
-    }
-    if (compteur == firstString.length && firstString.length + 1 == secondString.length) {
-      return true;
-    }
-  }
-
-  return false;
-}
 
 function searchLonguestChain(predecessor, successor, chain, p) {
     let lengthOfSucc = successor.length, count = 0, newPredecessor = [], finalChain = []
@@ -99,7 +79,8 @@ function searchLonguestChain(predecessor, successor, chain, p) {
         successor = chain[p]
         do {
             count = 0
-            lengthOfPredc = predecessor.length, lengthOfSucc = successor.length, newPredecessor = []
+            let lengthOfPredc = predecessor.length
+            lengthOfSucc = successor.length, newPredecessor = []
             for (let index = 0; index < lengthOfPredc; index++) {
                 for (let i = 0; i < lengthOfSucc; i++) {
                     if(haveSuccessor(predecessor[index][predecessor[index].length -1], successor[i])){
@@ -110,20 +91,19 @@ function searchLonguestChain(predecessor, successor, chain, p) {
                 }
                 if(count == lengthOfSucc){
                     count = 0
-                    if(predecessor[index].length != 0) finalChain = finalChain.concat(predecessor[index])
+                    if(predecessor[index].length != 0) finalChain = finalChain.concat([predecessor[index]])
                 }
             }
             if(newPredecessor.length != 0 && chain[p+1]!= undefined) {
                 p++, predecessor = newPredecessor, successor = chain[p]
                 condition = true
             } else {
-                if(newPredecessor.length != 0) finalChain = finalChain.concat(newPredecessor)
+                if(newPredecessor.length == 1) finalChain = finalChain.concat(newPredecessor)
                 condition = false
             }
         } while (condition);
+        return finalChain
     }
-    console.log(finalChain)
-    return finalChain
 }
 
 let chain = new Map(), longuestChain = [];
@@ -134,11 +114,8 @@ for (let i = 0; i < words[0].length; i++) {
     lenght = element.length;
   lenght < min ? (min = lenght) : (min = min);
   max < lenght ? (max = lenght) : (max = max);
-  chain[lenght] != undefined
-    ? chain[lenght].indexOf(element) == -1
-      ? chain[lenght].push(element)
-      : (chain[lenght] = chain[lenght])
-    : (chain[lenght] = new Array(element));
+  chain[lenght] != undefined ? (chain[lenght].indexOf(element) == -1 ? chain[lenght].push(element) : (chain[lenght] = chain[lenght]))
+  : (chain[lenght] = new Array(element));
 }
 
 for (let i = min; i < max ; i++) {
@@ -148,16 +125,17 @@ for (let i = min; i < max ; i++) {
   for (let j = 0; j < lengthOfPredc; j++) {
     let compteur = 0;
     if (chain[i - 1] === undefined) {
-       longuestChain = longuestChain.concat(searchLonguestChain(predecessor[j], successor, chain, min + 1));
+       longuestChain = (searchLonguestChain(predecessor[j], successor, chain, i + 1).concat(longuestChain));
     } else {
       lengthOfPredChain =  chain[i - 1].length;
       for (let k = 0; k < lengthOfPredChain; k++) {
         if (!haveSuccessor( chain[i - 1][k], predecessor[j])) compteur++;
       }
       if (compteur == lengthOfPredChain) {
-        longuestChain = longuestChain.concat(searchLonguestChain(predecessor[j], successor, chain, i + 1));
+        longuestChain = (searchLonguestChain(predecessor[j], successor, chain, i + 1).concat(longuestChain));
       }
     }
   }
 }
-//console.log(' Here is the function ', longuestChain)
+let longueur = longuestChain.map(element => element.length ).reduce((max, element) => Math.max(max,element))
+console.log(' The longuestChain is  ', longueur, longuestChain)
