@@ -9,3 +9,6 @@ Try to see this concept before to solve problem
 ## What you'll learn
 You will leanr this concept
  ''Chaînes de caractères, Encodage, Boucles, Conditions
+
+## Solution
+[Unary.js](./Unary.js)
