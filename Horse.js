@@ -17,3 +17,27 @@ for (const key in maMap) {
   console.log(`${key}`);
   break
 }
+
+// another way
+
+
+ const N = parseInt(readline());
+
+ let strengths = [];
+ for (let i = 0; i < N; i++) {
+     strengths[i] = parseInt(readline());
+ }
+ 
+ strengths = strengths.sort((a, b) => a - b);
+ 
+ let smallestDiff = Infinity;
+ 
+ for (i = 0; i < strengths.length; i++) {
+     let diff = Math.abs(strengths[i] - strengths[i + 1])
+     if (diff < smallestDiff) {
+         smallestDiff = diff;
+     }
+ }
+ 
+ console.log(smallestDiff);
+ 
