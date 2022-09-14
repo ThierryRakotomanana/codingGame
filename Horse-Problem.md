@@ -1,4 +1,4 @@
-## SOLVE UNARY PROBLEM
+## HORSE
  >link is bellow
 [CHEVAUX DE COURSE](https://www.codingame.com/training/easy/horse-racing-duals)
 
