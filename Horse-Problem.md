@@ -1,17 +1,16 @@
 ## SOLVE UNARY PROBLEM
  >link is bellow
-[UNARY](https://www.codingame.com/training/easy/unary)
+[CHEVAUX DE COURSE](https://www.codingame.com/training/easy/horse-racing-duals)
 
 ## External ressource usefull
 Try to see this concept before to solve problem
- ''[Masquage](https://fr.wikipedia.org/wiki/Masquage) , [Décalage de bits](https://fr.wikipedia.org/wiki/Op%C3%A9ration_bit_%C3%A0_bit#D.C3.A9calages_de_bit) , [Table ASCII](http://ascii.cl/)
-
+ ''[Tri](https://fr.wikipedia.org/wiki/Algorithme_de_tri) , [Liste](https://fr.wikipedia.org/wiki/Liste_%28informatique%29) 
 ## What you'll learn
 You will leanr this concept
- ''Chaînes de caractères, Encodage, Boucles, Conditions
+ ''Array, Boucles, Conditions
 
 ## Solution
-[Unary.js](./Unary.js)
+[Horse-Solution.js](./Horse-Solution.js)
 
 ### Description
 
