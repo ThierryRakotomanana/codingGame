@@ -1,6 +1,6 @@
 ## SOLVE UNARY PROBLEM
  >link is bellow
-[UNARY](https://www.codingame.com/training/easy/unary)
+[Probleme NAME](https://www.codingame.com/training/link)
 
 ## External ressource usefull
 Try to see this concept before to solve problem
@@ -11,6 +11,6 @@ You will leanr this concept
  ''Chaînes de caractères, Encodage, Boucles, Conditions
 
 ## Solution
-[Unary.js](./Unary.js)
+[link to solution](./nameOfFile-Solution.js)
 
 ### Description
