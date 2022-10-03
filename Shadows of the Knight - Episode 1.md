@@ -14,7 +14,7 @@ The following concepts can help you solve this puzzle. Discover them and put the
 [Intervals](https://www.codingame.com/learn/intervals)
 
 ## Solution
-[link to solution](./Shadows of the Knight - Episode 1.js)
+[link to solution](./Shadows%20%of%20%the%20%Knight%20%-%20%Episode%20%1.js)
 
 ### Read instructions below
 
