@@ -1,22 +1,24 @@
-import sys
-import math
+/**
+ * Auto-generated code below aims at helping you parse
+ * the standard input according to the problem statement.
+ **/
 
-# Auto-generated code below aims at helping you parse
-# the standard input according to the problem statement.
+var inputs = readline().split(' ');
+const W = parseInt(inputs[0]); // width of the building.
+const H = parseInt(inputs[1]); // height of the building.
+const N = parseInt(readline()); // maximum number of turns before game over.
+var inputs = readline().split(' ');
+const X0 = parseInt(inputs[0]);
+const Y0 = parseInt(inputs[1]);
 
-# w: width of the building.
-# h: height of the building.
-w, h = [int(i) for i in input().split()]
-n = int(input())  # maximum number of turns before game over.
-x0, y0 = [int(i) for i in input().split()]
+// game loop
+while (true) {
+    const bombDir = readline(); // the direction of the bombs from batman's current location (U, UR, R, DR, D, DL, L or UL)
 
-# game loop
-while True:
-    bomb_dir = input()  # the direction of the bombs from batman's current location (U, UR, R, DR, D, DL, L or UL)
-
-    # Write an action using print
-    # To debug: print("Debug messages...", file=sys.stderr, flush=True)
+    // Write an action using console.log()
+    // To debug: console.error('Debug messages...');
 
 
-    # the location of the next window Batman should jump to.
-    print("0 0")
+    // the location of the next window Batman should jump to.
+    console.log('0 0');
+}
