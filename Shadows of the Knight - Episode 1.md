@@ -1,4 +1,4 @@
-## SOLVE UNARY PROBLEM
+## SOLVE shadows of the knight episode 1 PROBLEM
  >link is bellow
 [shadows-of-the-knight-episode-1](https://www.codingame.com/ide/puzzle/shadows-of-the-knight-episode-1)
 
@@ -73,5 +73,5 @@ Temps de réponse pour un tour ≤ 150ms
 | :---------------: | ---------------:|
 | Entrée d'initialisation 10 10     Le bâtiment a 100 fenêtres (10x10) 6         Vous devez trouver les bombes en 6 sauts 2 5       Vous commencez en position (2,5) ![image0](https://github.com/ThierryRakotomanana/codingGame/blob/main/images/Shadows%20of%20the%20Knoght%20-%20Episode%201/example0.png)  |  Pas de sortie attendue        |
 | Entrée pour le tour 1 UR Les otages sont situés vers le haut et vers la droite ![image1](https://github.com/ThierryRakotomanana/codingGame/blob/main/images/Shadows%20of%20the%20Knoght%20-%20Episode%201/example1.png) | Sortie pour le tour 1    5 4     Vous sautez sur la fenêtre (5,4) |
-| Entrée pour le tour 2     R   Les otages sont situés à votre droite  | Sortie pour le tour 2  7 4     Vous sautez sur la fenêtre (7,4) ![image2](https://github.com/ThierryRakotomanana/codingGame/blob/main/images/Shadows%20of%20the%20Knoght%20-%20Episode%201/example2.png) |
+| Entrée pour le tour 2     R   Les otages sont situés à votre droite ![image2](https://github.com/ThierryRakotomanana/codingGame/blob/main/images/Shadows%20of%20the%20Knoght%20-%20Episode%201/example2.png) | Sortie pour le tour 2  7 4     Vous sautez sur la fenêtre (7,4) |
 | ![image3](https://github.com/ThierryRakotomanana/codingGame/blob/main/images/Shadows%20of%20the%20Knoght%20-%20Episode%201/example3.png)  |   Vous avez trouvé les otages. Vous pouvez désamorcer les bombes à temps. Vous avez gagné !   |
