@@ -34,21 +34,49 @@ while (true) {
         X = Math.round(X/2)
         position1 = position1 + Math.round(Y/2)
         Y = Math.round(Y/2)
-        console.log('0 0');
+        console.log("position1 position0")
     }else if(bombDir == "UR"){
-        console.log('0 0');
+        position0 = position0 + Math.round(X/2)
+        X = Math.round(X/2)
+        position1 = position1 + Math.round(Y/2)
+        Y = Math.round(Y/2)
+        console.log("position1 position0")
     }else if(bombDir == "R"){
-        console.log('0 0');
+        position0 = position0 + Math.round(X/2)
+        X = Math.round(X/2)
+        position1 = position1 + Math.round(Y/2)
+        Y = Math.round(Y/2)
+        console.log("position1 position0")
     }else if(bombDir == "DR"){
-        console.log('0 0');
+        position0 = position0 + Math.round(X/2)
+        X = Math.round(X/2)
+        position1 = position1 + Math.round(Y/2)
+        Y = Math.round(Y/2)
+        console.log("position1 position0")
     }else if(bombDir == "D"){
-        console.log('0 0');
+        position0 = position0 + Math.round(X/2)
+        X = Math.round(X/2)
+        position1 = position1 + Math.round(Y/2)
+        Y = Math.round(Y/2)
+        console.log("position1 position0")
     }else if(bombDir == "DL"){
-        console.log('0 0');
+        position0 = position0 + Math.round(X/2)
+        X = Math.round(X/2)
+        position1 = position1 + Math.round(Y/2)
+        Y = Math.round(Y/2)
+        console.log("position1 position0")
     }else if(bombDir == "L"){
-        console.log('0 0');
+        position0 = position0 + Math.round(X/2)
+        X = Math.round(X/2)
+        position1 = position1 + Math.round(Y/2)
+        Y = Math.round(Y/2)
+        console.log("position1 position0")
     }else {
-        console.log('0 0');
+        position0 = position0 + Math.round(X/2)
+        X = Math.round(X/2)
+        position1 = position1 + Math.round(Y/2)
+        Y = Math.round(Y/2)
+        console.log("position1 position0")
     }
     only = false
     // the location of the next window Batman should jump to.
