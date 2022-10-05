@@ -27,8 +27,6 @@ while (true) {
         X = X
         Y = Y
     }
-    only == true ? : X = X, Y = Y
-
     if(bombDir == 'U'){
         position0 = position0 + Math.round(X/2)
         X = Math.round(X/2)
