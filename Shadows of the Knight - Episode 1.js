@@ -28,53 +28,45 @@ while (true) {
         Y = Y
     }
     if(bombDir == 'U'){
-        position0 = position0 + Math.round(X/2)
-        X = Math.round(X/2)
         position1 = position1 + Math.round(Y/2)
         Y = Math.round(Y/2)
-        console.log("position1 position0")
+        console.log(position0," ",position1)
     }else if(bombDir == "UR"){
         position0 = position0 + Math.round(X/2)
         X = Math.round(X/2)
         position1 = position1 + Math.round(Y/2)
         Y = Math.round(Y/2)
-        console.log("position1 position0")
+        console.log(position0," ",position1)
     }else if(bombDir == "R"){
         position0 = position0 + Math.round(X/2)
         X = Math.round(X/2)
-        position1 = position1 + Math.round(Y/2)
-        Y = Math.round(Y/2)
-        console.log("position1 position0")
+        console.log(position0," ",position1)
     }else if(bombDir == "DR"){
         position0 = position0 + Math.round(X/2)
         X = Math.round(X/2)
-        position1 = position1 + Math.round(Y/2)
+        position1 = position1 - Math.round(Y/2)
         Y = Math.round(Y/2)
-        console.log("position1 position0")
+        console.log(position0," ",position1)
     }else if(bombDir == "D"){
-        position0 = position0 + Math.round(X/2)
-        X = Math.round(X/2)
-        position1 = position1 + Math.round(Y/2)
+        position1 = position1 - Math.round(Y/2)
         Y = Math.round(Y/2)
-        console.log("position1 position0")
+        console.log(position0," ",position1)
     }else if(bombDir == "DL"){
-        position0 = position0 + Math.round(X/2)
+        position0 = position0 - Math.round(X/2)
         X = Math.round(X/2)
-        position1 = position1 + Math.round(Y/2)
+        position1 = position1 - Math.round(Y/2)
         Y = Math.round(Y/2)
-        console.log("position1 position0")
+        console.log(position0," ",position1)
     }else if(bombDir == "L"){
-        position0 = position0 + Math.round(X/2)
+        position0 = position0 - Math.round(X/2)
         X = Math.round(X/2)
-        position1 = position1 + Math.round(Y/2)
-        Y = Math.round(Y/2)
-        console.log("position1 position0")
+        console.log(position0," ",position1)
     }else {
         position0 = position0 + Math.round(X/2)
         X = Math.round(X/2)
-        position1 = position1 + Math.round(Y/2)
+        position1 = position1 - Math.round(Y/2)
         Y = Math.round(Y/2)
-        console.log("position1 position0")
+        console.log(position0," ",position1)
     }
     only = false
     // the location of the next window Batman should jump to.
