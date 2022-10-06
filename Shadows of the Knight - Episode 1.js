@@ -28,46 +28,40 @@ while (true) {
         Y = Y
     }
     if(bombDir == 'U'){
-        position1 = position1 + Math.round(Y/2)
+        Y0 = Y0 + Math.round(Y/2)
         Y = Math.round(Y/2)
-        console.log(position0," ",position1)
     }else if(bombDir == "UR"){
-        position0 = position0 + Math.round(X/2)
+        X0 = X0 + Math.round(X/2)
         X = Math.round(X/2)
-        position1 = position1 + Math.round(Y/2)
+        Y0 = Y0 + Math.round(Y/2)
         Y = Math.round(Y/2)
-        console.log(position0," ",position1)
     }else if(bombDir == "R"){
-        position0 = position0 + Math.round(X/2)
+        X0 = X0 + Math.round(X/2)
         X = Math.round(X/2)
-        console.log(position0," ",position1)
     }else if(bombDir == "DR"){
-        position0 = position0 + Math.round(X/2)
+        X0 = X0 + Math.round(X/2)
         X = Math.round(X/2)
-        position1 = position1 - Math.round(Y/2)
+        Y0 = Y0 - Math.round(Y/2)
         Y = Math.round(Y/2)
-        console.log(position0," ",position1)
     }else if(bombDir == "D"){
-        position1 = position1 - Math.round(Y/2)
+        Y0 = Y0 - Math.round(Y/2)
         Y = Math.round(Y/2)
-        console.log(position0," ",position1)
     }else if(bombDir == "DL"){
-        position0 = position0 - Math.round(X/2)
+        X0 = X0 - Math.round(X/2)
         X = Math.round(X/2)
-        position1 = position1 - Math.round(Y/2)
+        Y0 = Y0 - Math.round(Y/2)
         Y = Math.round(Y/2)
-        console.log(position0," ",position1)
     }else if(bombDir == "L"){
-        position0 = position0 - Math.round(X/2)
+        X0 = X0 - Math.round(X/2)
         X = Math.round(X/2)
-        console.log(position0," ",position1)
     }else if(bombDir == "UL"){
-        position0 = position0 + Math.round(X/2)
+        X0 = X0 + Math.round(X/2)
         X = Math.round(X/2)
-        position1 = position1 - Math.round(Y/2)
+        Y0 = Y0 - Math.round(Y/2)
         Y = Math.round(Y/2)
-        console.log(position0," ",position1)
     }
     only = false
+
+    console.log(X0," ",Y0)
     // the location of the next window Batman should jump to.
 }
