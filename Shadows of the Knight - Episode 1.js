@@ -61,7 +61,7 @@ while (true) {
         position0 = position0 - Math.round(X/2)
         X = Math.round(X/2)
         console.log(position0," ",position1)
-    }else {
+    }else if(bombDir == "UL"){
         position0 = position0 + Math.round(X/2)
         X = Math.round(X/2)
         position1 = position1 - Math.round(Y/2)
