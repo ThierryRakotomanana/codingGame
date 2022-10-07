@@ -1,5 +1,9 @@
+/**
+ * Auto-generated code below aims at helping you parse
+ * the standard input according to the problem statement.
+ **/
 
-let message = '%CB2'
+let message = readline();
 
 const toBinary = function(input) {
 		var result = "";
