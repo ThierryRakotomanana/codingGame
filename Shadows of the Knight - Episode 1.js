@@ -31,38 +31,50 @@ while (true) {
             X = W - (X0 + 1)
         }
     }
-
+    
     if(bombDir == 'U'){
         Y0 = Y0 - Math.round(Y/2)
+        Y0 <= 0 ? Y0 = 0 : Y0 = Y0
         Y = Math.round(Y/2)
     }else if(bombDir == "UR"){
         X0 = X0 + Math.round(X/2)
         X = Math.round(X/2)
+        W - 1 < X0 ? X0 = W - 1 : X0 = X0
         Y0 = Y0 - Math.round(Y/2)
+        Y0 <= 0 ? Y0 = 0 : Y0 = Y0
         Y = Math.round(Y/2)
     }else if(bombDir == "R"){
         X0 = X0 + Math.round(X/2)
+        W - 1 < X0 ? X0 = W - 1 : X0 = X0
         X = Math.round(X/2)
     }else if(bombDir == "DR"){
         X0 = X0 + Math.round(X/2)
+        W - 1 < X0 ? X0 = W - 1 : X0 = X0
         X = Math.round(X/2)
         Y0 = Y0 + Math.round(Y/2)
+        H - 1 < Y0 ? Y0 = H - 1 : Y0 = Y0
         Y = Math.round(Y/2)
     }else if(bombDir == "D"){
         Y0 = Y0 + Math.round(Y/2)
+        H - 1 < Y0 ? Y0 = H - 1 : Y0 = Y0
         Y = Math.round(Y/2)
     }else if(bombDir == "DL"){
         X0 = X0 - Math.round(X/2)
+        X0 <= 0 ? X0 = 0 : X0 = X0
         X = Math.round(X/2)
         Y0 = Y0 + Math.round(Y/2)
+        H - 1 < Y0 ? Y0 = H - 1 : Y0 = Y0
         Y = Math.round(Y/2)
     }else if(bombDir == "L"){
         X0 = X0 - Math.round(X/2)
+        X0 <= 0 ? X0 = 0 : X0 = X0
         X = Math.round(X/2)
     }else if(bombDir == "UL"){
         X0 = X0 - Math.round(X/2)
+        X0 <= 0 ? X0 = 0 : X0 = X0
         X = Math.round(X/2)
-        Y0 = Y0 + Math.round(Y/2)
+        Y0 = Y0 -  Math.round(Y/2)
+        Y0 <= 0 ? Y0 = 0 : Y0 = Y0
         Y = Math.round(Y/2)
     }
     only = false
