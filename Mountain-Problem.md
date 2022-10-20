@@ -39,9 +39,9 @@ Le programme doit lire depuis l'entrée standard la hauteur des montagnes puis f
 Entrées pour un tour de jeu
 8lignes : un entiermontagneHpar ligne. Il représente la hauteur d'une montagne. Les hauteurs des montagnes sont données dans l'ordre de leur index (allant de 0 à 7).
 
-Sortie pour un tour de jeu
+    Sortie pour un tour de jeu
 Une ligne unique contenant le numéro de la montagne sur laquelle tirer.
 
-Contraintes
-0 ≤montagneH≤ 9
-Temps de réponse pour un tour ≤ 100ms
+    Contraintes
+    0 ≤montagneH≤ 9
+    Temps de réponse pour un tour ≤ 100ms
