@@ -11,7 +11,7 @@ You will leanr this concept
  ''Chaînes de caractères, Encodage, Boucles, Conditions
 
 ## Solution
-[link to solution](./nameOfFile-Solution.js)
+[link to solution](./MIME%20%Type-solution.js.js)
 
 ### Description
 
